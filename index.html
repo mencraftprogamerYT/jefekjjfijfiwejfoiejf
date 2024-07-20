@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minecraft Server Keep Alive</title>
+</head>
+<body>
+    <h1>Minecraft Server Keep Alive</h1>
+    <p>This page pings the Minecraft server periodically to keep it active.</p>
+    <script>
+        const serverUrl = 'parayoutube.aternos.me'; // URL de tu servidor de Aternos
+
+        function pingServer() {
+            fetch(serverUrl)
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Server is up and running!');
+                    } else {
+                        console.log('Server responded with status code:', response.status);
+                    }
+                })
+                .catch(error => {
+                    console.log('Error pinging the server:', error);
+                });
+        }
+
+        // Ping the server every 0.30 minutes (300000 milliseconds)
+        setInterval(pingServer, 300000);
+    </script>
+</body>
+</html>
